@@ -22,4 +22,12 @@ div a {
     color: #2c3e50;
     margin: 0 10px;
 }
+a{
+    text-decoration: none;
+}
+
+a.router-link-exact-active{
+    color: #42b983;
+    text-decoration: underline;
+}
 </style>
