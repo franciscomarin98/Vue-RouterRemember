@@ -1,22 +1,25 @@
-import Pokemon from "../modules/pokemon/views/Pokemon";
-import About from "../modules/pokemon/views/About";
-import List from "../modules/pokemon/views/List";
 import {createRouter, createWebHashHistory} from "vue-router";
-import NotFound from "../modules/shared/views/NotFound";
-
 
 const routes = [
     {
-        path: '/', component: List
+        path: '/',
+        name: 'List',
+        component: () => import(/* webpackChunkName: "ListBundle" */  '../modules/pokemon/views/List')
     },
     {
-        path: '/about', component: About
+        path: '/about',
+        name: 'About',
+        component: () => import(/* webpackChunkName: "AboutBundle" */  '../modules/pokemon/views/About')
     },
     {
-        path: '/id', component: Pokemon
+        path: '/id',
+        name: 'Pokemon',
+        component: () => import(/* webpackChunkName: "PokemonBundle" */ '../modules/pokemon/views/Pokemon')
     },
     {
-        path: '/:pathMatch(.*)*', component: NotFound
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import(/*  webpackChunkName: "NotFoundBundle" */ '../modules/shared/views/NotFound')
     }
 ]
 
