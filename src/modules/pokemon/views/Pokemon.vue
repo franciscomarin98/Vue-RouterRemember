@@ -25,10 +25,9 @@ export default {
             try {
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.id}`);
                 this.pokemon = await response.json();
-                console.log(this.pokemon)
             } catch (err) {
                 await this.$router.push({name: 'NotFound'});
-                console.log('Redireccionado, no se encontró el pokemon')
+                //console.log('Redireccionado, no se encontró el pokemon')
             }
         }
     },

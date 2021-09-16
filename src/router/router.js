@@ -3,7 +3,7 @@ import {createRouter, createWebHashHistory} from "vue-router";
 const routes = [
     {
         path: '/',
-        name: 'List',
+        name: 'Home',
         component: () => import(/* webpackChunkName: "ListBundle" */  '../modules/pokemon/views/List')
     },
     {
@@ -12,7 +12,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "AboutBundle" */  '../modules/pokemon/views/About')
     },
     {
-        path: '/:id',
+        path: '/pokemon-detail/:id',
         name: 'Pokemon',
         component: () => import(/* webpackChunkName: "PokemonBundle" */ '../modules/pokemon/views/Pokemon'),
         props: (route) => {
@@ -23,6 +23,7 @@ const routes = [
     {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
+        //redirect: '/'
         component: () => import(/*  webpackChunkName: "NotFoundBundle" */ '../modules/shared/views/NotFound')
     }
 ]

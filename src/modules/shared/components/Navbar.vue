@@ -1,8 +1,8 @@
 <template>
     <div>
-        <router-link to="/">Pokemon List</router-link>
+        <router-link :to="{name:'Home'}">Pokemon List</router-link>
         <router-link :to="{name: 'Pokemon', params: {id: 500}}">Pokemon por id</router-link>
-        <router-link to="/about">About</router-link>
+        <router-link :to="{name: 'About'}">About</router-link>
     </div>
 </template>
 
@@ -27,7 +27,7 @@ a {
     text-decoration: none;
 }
 
-a.router-link-exact-active {
+a.router-link-active.router-link-exact-active {
     color: #42b983;
     text-decoration: underline;
 }
