@@ -17,7 +17,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "PokemonBundle" */ '../modules/pokemon/views/Pokemon'),
         props: (route) => {
             const pokemonId = Number(route.params.id)
-            return isNaN(pokemonId) ? {id: 1, name: 'Bulbasur'} : {id: pokemonId, name: 'Charizard'}
+            return isNaN(pokemonId) ? {id: 1} : {id: pokemonId}
         }
     },
     {
