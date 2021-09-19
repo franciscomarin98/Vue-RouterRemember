@@ -16,13 +16,19 @@ export default {
         return {
             links: [
                 {
-                    to: '/', name: 'Pokemons',
+                    to: 'Home', name: 'Pokemons',
                 },
                 {
-                    to: '/pokemon-detail/16', name: 'Por ID',
+                    to: 'Pokemon', name: 'Por ID', id: 151
                 },
                 {
-                    to: '/about', name: 'About',
+                    to: 'About', name: 'About',
+                },
+                {
+                    to: 'Characters', name: 'Characters'
+                },
+                {
+                    to: 'DBZAbout', name: 'DBZ-About'
                 },
                 {
                     to: 'https://google.com', name: 'Google',
