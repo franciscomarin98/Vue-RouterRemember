@@ -68,4 +68,18 @@ const router = createRouter({
     routes
 })
 
+// Guard Global - Síncrono
+router.beforeEach((to, from, next) => {
+    console.log({to, from, next})
+    const random = Math.random() * 100;
+    // console.log(random)
+    if (random > 50) {
+        console.log('Autenticado');
+        next()
+    } else {
+        console.log('Bloqueado por el beforeEach guard', random);
+        next({name: 'Home'})
+    }
+})
+
 export default router;
