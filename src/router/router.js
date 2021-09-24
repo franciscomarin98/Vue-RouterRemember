@@ -69,10 +69,11 @@ const router = createRouter({
 })
 
 // Guard Global - Síncrono
+/*
 router.beforeEach((to, from, next) => {
     console.log({to, from, next})
-    const random = Math.random() * 100;
     // console.log(random)
+    const random = Math.random() * 100;
     if (random > 50) {
         console.log('Autenticado');
         next()
@@ -80,6 +81,25 @@ router.beforeEach((to, from, next) => {
         console.log('Bloqueado por el beforeEach guard', random);
         next({name: 'Home'})
     }
+})
+*/
+
+const canAccess = () => {
+    return new Promise(resolve => {
+        const random = Math.random() * 100;
+        if (random > 50) {
+            console.log('Autenticado - canAccess');
+            resolve(true)
+        } else {
+            console.log(random, 'Bloqueado por el beforeEach guard - canAccess');
+            resolve(false)
+        }
+    })
+}
+
+router.beforeEach(async (to, from, next) => {
+    const authorized = await canAccess();
+    authorized ? next() : next({name: 'Home'})
 })
 
 export default router;
